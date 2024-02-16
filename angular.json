@@ -60,6 +60,11 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "sslKey": "certs/localhost.key",
+            "sslCert": "certs/localhost.crt",
+            "ssl": true
+          },
           "configurations": {
             "production": {
               "buildTarget": "webworker:build:production"
