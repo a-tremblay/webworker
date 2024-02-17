@@ -1,4 +1,9 @@
 export interface DataElement  {
   id: string;
-  code: string;
+  message: string;
+  somethingHeavy: string;
+  dateCreated: Date;
 }
+
+
+export type DataElementsKeys = keyof DataElement
