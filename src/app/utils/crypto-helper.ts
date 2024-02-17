@@ -1,9 +1,7 @@
 import {StringHelper} from "./string-helper";
+import {CipherData} from "../type/typeDefinition";
 
-export interface CipherData {
-  iv: string;
-  ciphertext: string;
-}
+
 
 /**
  * Simple Class to enc/dec

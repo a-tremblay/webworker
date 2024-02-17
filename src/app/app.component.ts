@@ -10,6 +10,6 @@ import {BenchmarkComponent} from "./component/benchmark/benchmark.component";
   styleUrl: './app.component.scss'
 })
 export class AppComponent  {
-  title = 'webworker';
+  title = 'Web Worker Benchmark';
 
 }

@@ -7,3 +7,8 @@ export interface DataElement  {
 
 
 export type DataElementsKeys = keyof DataElement
+
+export interface CipherData {
+  iv: string;
+  ciphertext: string;
+}

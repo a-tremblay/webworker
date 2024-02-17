@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {DataElement} from "../type/data";
+import {DataElement} from "../type/typeDefinition";
 import {StringHelper} from "../utils/string-helper";
 
 const BATCH_SIZE= 25
