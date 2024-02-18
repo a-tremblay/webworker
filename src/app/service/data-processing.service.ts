@@ -23,6 +23,11 @@ export class DataProcessingService {
     return await this.cryptoLib.generateSecretKey(password)
   }
 
+  /**
+   * Processing function 1 : Encrypt some data
+   * @param payload
+   * @param jwk
+   */
   async encrypt(payload: DataElement[], jwk: JsonWebKey){
 
     const encryptedData = []
@@ -35,6 +40,11 @@ export class DataProcessingService {
     return encryptedData
   }
 
+  /**
+   * Processing function 2 : Decrypt some data
+   * @param payload
+   * @param secretKey
+   */
   async decrypt(payload: CipherData[], secretKey: JsonWebKey){
     const jsonData = []
     for(const cipherData of payload) {
@@ -44,7 +54,25 @@ export class DataProcessingService {
     }
     return jsonData
   }
+  /**
+   * Processing function 3 : Cast some json text back to an object
+   * @param jsonObjects
+   */
+  async hydrate(jsonObjects: string[]) {
+    const dataElements: DataElement[] = []
+    for(const json of jsonObjects) {
+      const obj = JSON.parse(json) as DataElement
+      dataElements.push(obj)
+      console.log(`Restored ${obj.id} : ${obj.dateCreated} `)
+    }
 
+    return dataElements
+  }
+
+  /**
+   * Processing function 4 : Do some heavy processing on strings and combine elements in some ways
+   * @param payload
+   */
   async hashCombine(payload: DataElement[]){
     const finalData = []
     let loop = 1
@@ -81,16 +109,7 @@ export class DataProcessingService {
     return finalData
   }
 
-  async hydrate(jsonObjects: string[]) {
-    const dataElements: DataElement[] = []
-    for(const json of jsonObjects) {
-      const obj = JSON.parse(json) as DataElement
-      dataElements.push(obj)
-      console.log(`Restored ${obj.id} : ${obj.dateCreated} `)
-    }
 
-    return dataElements
-  }
 
 
 }
